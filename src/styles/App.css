@@ -1,0 +1,256 @@
+:root {
+  /* Base */
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --border: rgba(15, 23, 42, 0.10);
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+
+  /* Accent (soft + modern) */
+  --accent-1: #8b5cf6; /* violet */
+  --accent-2: #ec4899; /* pink */
+  --accent-3: #22d3ee; /* cyan */
+
+  /* Primary surfaces */
+  --primary-soft: rgba(139, 92, 246, 0.10);
+  --chip-bg: rgba(255, 255, 255, 0.70);
+
+  --radius-xl: 22px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Arial, sans-serif;
+
+  /* Subtle lively background */
+  background:
+    radial-gradient(700px 320px at 12% -10%, rgba(236, 72, 153, 0.14), transparent 60%),
+    radial-gradient(620px 340px at 92% 10%, rgba(139, 92, 246, 0.14), transparent 60%),
+    radial-gradient(720px 420px at 50% 105%, rgba(34, 211, 238, 0.12), transparent 65%),
+    linear-gradient(180deg, #fbfcff 0%, var(--bg) 100%);
+}
+
+/* ---------- Layout ---------- */
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 14px 40px;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  margin-bottom: 18px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+}
+
+.sub {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ---------- Category chips ---------- */
+
+.chips {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 22px;
+}
+
+.chip {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+
+  /* glassy but subtle */
+  background: var(--chip-bg);
+  backdrop-filter: blur(8px);
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.15s ease, background 0.15s ease, border 0.15s ease;
+}
+
+.chip:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.chip.active {
+  /* soft gradient without being loud */
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.90),
+    rgba(236, 72, 153, 0.85)
+  );
+  color: white;
+  border-color: rgba(255, 255, 255, 0.0);
+}
+
+/* ---------- Phrase list ---------- */
+
+.list {
+  display: grid;
+  gap: 18px;
+}
+
+/* ---------- Card ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-xl);
+  padding: 18px 18px 20px;
+  display: grid;
+  gap: 12px;
+  position: relative;
+
+  /* softer, more premium */
+  box-shadow:
+    0 1px 0 rgba(15, 23, 42, 0.03),
+    0 16px 40px rgba(15, 23, 42, 0.06);
+
+  animation: fadeUp 0.25s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Danish (intent) ---------- */
+
+.card-header {
+  padding-left: 12px;
+
+  /* gradient accent instead of flat blue */
+  border-left: 4px solid transparent;
+  border-image: linear-gradient(
+    180deg,
+    rgba(139, 92, 246, 1),
+    rgba(236, 72, 153, 1),
+    rgba(34, 211, 238, 1)
+  ) 1;
+}
+
+.da {
+  font-size: 16px;
+  font-weight: 750;
+}
+
+/* ---------- Japanese (main) ---------- */
+
+.jp {
+  font-size: 24px;
+  font-weight: 520;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+/* ---------- Romaji ---------- */
+
+.romaji {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Actions ---------- */
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn {
+  border-radius: var(--radius-md);
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+
+  transition: transform 0.05s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+}
+
+/* Primary play button */
+.btn.primary {
+  grid-column: span 2;
+
+  /* friendly accent gradient, not too loud */
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.95),
+    rgba(236, 72, 153, 0.90)
+  );
+  color: white;
+  border: none;
+  box-shadow: 0 10px 24px rgba(139, 92, 246, 0.25);
+}
+
+.btn.primary:hover {
+  box-shadow: 0 14px 30px rgba(139, 92, 246, 0.28);
+}
+
+.btn.primary:active {
+  box-shadow: 0 8px 18px rgba(139, 92, 246, 0.22);
+}
+
+/* Secondary buttons */
+.btn.ghost {
+  background: rgba(248, 250, 252, 0.85);
+}
+
+/* ---------- Mobile polish ---------- */
+
+@media (max-width: 420px) {
+  .jp {
+    font-size: 22px;
+  }
+
+  .container {
+    padding-top: 16px;
+  }
+}
