@@ -1,0 +1,168 @@
+/* ===========================
+   Restaurants – scoped styles
+   =========================== */
+
+.restaurants .container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 14px 40px;
+}
+
+/* ---------- Header ---------- */
+
+.restaurants h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+}
+
+.restaurants .sub {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ---------- Controls ---------- */
+
+.restaurants .controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+/* reuse chip look but scoped */
+.restaurants .chip {
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--chip-bg);
+  backdrop-filter: blur(8px);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------- Cards ---------- */
+
+.restaurants .card {
+  background: var(--surface);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-xl);
+  padding: 16px 16px 18px;
+  display: grid;
+  gap: 10px;
+  box-shadow:
+    0 1px 0 rgba(15, 23, 42, 0.03),
+    0 14px 32px rgba(15, 23, 42, 0.06);
+  animation: restaurantsFadeUp 0.25s ease both;
+}
+
+@keyframes restaurantsFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Selected / focus card ---------- */
+
+.restaurants .card.selected {
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow:
+    0 1px 0 rgba(15, 23, 42, 0.03),
+    0 18px 40px rgba(139, 92, 246, 0.18);
+}
+
+/* ---------- Restaurant name ---------- */
+
+.restaurants .restaurant-name {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* ---------- AI summary / meta ---------- */
+
+.restaurants .summary {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* ---------- Actions ---------- */
+
+.restaurants .actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.restaurants .btn {
+  border-radius: var(--radius-md);
+  padding: 11px;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  transition: transform 0.05s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.restaurants .btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+}
+
+.restaurants .btn:active {
+  transform: translateY(1px);
+}
+
+/* Primary action (Find near me) */
+.restaurants .btn.primary {
+  grid-column: span 2;
+  background: linear-gradient(
+    135deg,
+    rgba(34, 211, 238, 0.95),
+    rgba(139, 92, 246, 0.95)
+  );
+  color: white;
+  border: none;
+  box-shadow: 0 10px 24px rgba(34, 211, 238, 0.28);
+}
+
+.restaurants .btn.primary:hover {
+  box-shadow: 0 14px 30px rgba(34, 211, 238, 0.32);
+}
+
+/* ---------- List ---------- */
+
+.restaurants .list {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+/* Make list items feel tappable */
+.restaurants .list .card {
+  cursor: pointer;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 420px) {
+  .restaurants h2 {
+    font-size: 18px;
+  }
+
+  .restaurants .container {
+    padding-top: 16px;
+  }
+}
